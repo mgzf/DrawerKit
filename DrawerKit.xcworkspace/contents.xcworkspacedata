@@ -5,6 +5,6 @@
       location = "group:DrawerKitDemo/DrawerKitDemo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:DrawerKit/DrawerKit.xcodeproj">
+      location = "group:DrawerKit.xcodeproj">
    </FileRef>
 </Workspace>
