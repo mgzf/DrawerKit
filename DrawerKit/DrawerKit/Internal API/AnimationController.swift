@@ -29,7 +29,14 @@ extension AnimationController: UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let (presentingVC, presentedVC) = viewControllers(transitionContext, isPresentation)
         if isPresentation {
-            transitionContext.containerView.addSubview(presentedVC.view)            
+            if configuration.isTouchForBgContent && !configuration.isDismissableByOutsideDrawerTaps {
+                transitionContext.containerView.isUserInteractionEnabled = false
+                presentedVC.view.isUserInteractionEnabled = true
+                transitionContext.containerView.superview?.addSubview(presentedVC.view)
+            }
+            else {
+                transitionContext.containerView.addSubview(presentedVC.view)
+            }
         }
 
         let duration = transitionDuration(using: transitionContext)

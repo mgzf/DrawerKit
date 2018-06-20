@@ -25,13 +25,14 @@ private extension PresenterViewController {
         configuration.durationIsProportionalToDistanceTraveled = false
         // default is UISpringTimingParameters()
         configuration.timingCurveProvider = UISpringTimingParameters(dampingRatio: 0.8)
-        configuration.fullExpansionBehaviour = .coversFullScreen
+        configuration.fullExpansionBehaviour = .leavesCustomGap(gap: 100)
         configuration.supportsPartialExpansion = true
         configuration.dismissesInStages = true
         configuration.isDrawerDraggable = true
         configuration.isFullyPresentableByDrawerTaps = true
         configuration.numberOfTapsForFullDrawerPresentation = 1
-        configuration.isDismissableByOutsideDrawerTaps = true
+        configuration.isDismissableByOutsideDrawerTaps = false
+        configuration.isTouchForBgContent = true
         configuration.numberOfTapsForOutsideDrawerDismissal = 1
         configuration.flickSpeedThreshold = 3
         configuration.upperMarkGap = 100 // default is 40
@@ -60,7 +61,7 @@ private extension PresenterViewController {
         drawerDisplayController = DrawerDisplayController(presentingViewController: self,
                                                           presentedViewController: vc,
                                                           configuration: configuration,
-                                                          inDebugMode: true)
+                                                          inDebugMode: false)
 
         present(vc, animated: true)
     }

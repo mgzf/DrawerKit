@@ -107,6 +107,10 @@ public struct DrawerConfiguration {
     /// Whether or not the drawer can be dismissed by tapping anywhere outside of it.
     /// The default value is `true`.
     public var isDismissableByOutsideDrawerTaps: Bool
+    
+    /// You can touch the content behind the pop-up.
+    /// The default value is `false`.
+    public var isTouchForBgContent: Bool
 
     /// How many taps are required for dismissing the drawer by tapping outside of it.
     /// The default value is 1.
@@ -167,6 +171,7 @@ public struct DrawerConfiguration {
                 isFullyPresentableByDrawerTaps: Bool = true,
                 numberOfTapsForFullDrawerPresentation: Int = 1,
                 isDismissableByOutsideDrawerTaps: Bool = true,
+                isTouchForBgContent: Bool = false,
                 numberOfTapsForOutsideDrawerDismissal: Int = 1,
                 flickSpeedThreshold: CGFloat = 3,
                 upperMarkGap: CGFloat = 40,
@@ -193,6 +198,7 @@ public struct DrawerConfiguration {
         self.isFullyPresentableByDrawerTaps = isFullyPresentableByDrawerTaps
         self.numberOfTapsForFullDrawerPresentation = max(0, numberOfTapsForFullDrawerPresentation)
         self.isDismissableByOutsideDrawerTaps = isDismissableByOutsideDrawerTaps
+        self.isTouchForBgContent = isTouchForBgContent
         self.numberOfTapsForOutsideDrawerDismissal = max(0, numberOfTapsForOutsideDrawerDismissal)
         self.flickSpeedThreshold = max(0, flickSpeedThreshold)
         self.upperMarkGap = max(0, upperMarkGap)
